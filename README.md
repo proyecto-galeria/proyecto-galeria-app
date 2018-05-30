@@ -1,0 +1,2 @@
+# proyecto-galeria-app
+Frontend
