@@ -1,16 +1,21 @@
 import React, { Component } from 'react';
 import {
     BrowserRouter as Router,
-    Link,
     Route,
 } from 'react-router-dom';
 import {
-    Button,
     Col,
     Grid,
     Row,
 } from 'react-bootstrap';
-import Form from './components/Form';
+import Menu from './components/Menu';
+import Concept from './components/Concept';
+import Feedback from './components/Feedback';
+import AddReceiver from './components/AddReceiver';
+import Photo from './components/Photo';
+import Record from './components/Record';
+import ValidatePhoto from './components/ValidatePhoto';
+import ValidteRecord from './components/ValidateRecord';
 
 class App extends Component {
   render() {
@@ -19,22 +24,15 @@ class App extends Component {
             <Grid>
                 <Row>
                     <Col xs={12} sm={6}>
-                        <ul>
-                            <li>
-                                <Link to="/">Inicio</Link>
-                            </li>
-                            <li>
-                                <Link to="/locations">Locaciones</Link>
-                            </li>
-                            <li>
-                                <Link to="/records">Registros</Link>
-                            </li>
-                            <li>
-                                <Link to="/tasks">Tareas</Link>
-                            </li>
-                        </ul>
-                        <Route exact path="/" render={() => <Button bsStyle="primary">Inicio</Button>} />
-                        <Route path="/records" component={Form} />
+                        <Menu />
+                        <Route exact path="/" render={() => <div>Inicio</div>} />
+                        <Route path="/concept" component={Concept} />
+                        <Route path="/record" component={Record} />
+                        <Route path="/photo" component={Photo} />
+                        <Route path="/validate-photo" component={ValidatePhoto} />
+                        <Route path="/validate-record" component={ValidteRecord} />
+                        <Route path="/add-receiver" component={AddReceiver} />
+                        <Route path="/feedback" component={Feedback} />
                     </Col>
                 </Row>
             </Grid>
