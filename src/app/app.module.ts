@@ -3,14 +3,19 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
+import { RecordsModule } from "../app/records/records.module";
+
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    RecordsModule
   ],
-  providers: [],
+  providers: [
+    // RecordsModule
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
