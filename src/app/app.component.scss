@@ -1,0 +1,22 @@
+@import '../assets/styles/resets';
+
+@import '../assets/styles/variables';
+
+
+#main-header {
+
+    display: flex;
+
+    .logo {
+        width: 20%;
+    }
+
+    &>nav {
+        width: 80%;
+
+        li {
+            font-size: $font-s;
+        }
+    }
+
+}
