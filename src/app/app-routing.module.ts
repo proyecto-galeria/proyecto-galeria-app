@@ -24,6 +24,16 @@ const routes: Routes = [
   },
 
   {
+    path: 'registro/:record_id',
+    loadChildren: './records/records.module#RecordsModule'
+  },
+
+  {
+    path: 'registros',
+    loadChildren: './records/records.module#RecordsModule'
+  },
+
+  {
     path: '**', component: NotFoundComponent
   },
 

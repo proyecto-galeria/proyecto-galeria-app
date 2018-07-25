@@ -1,0 +1,22 @@
+<p>
+  record-list works!
+</p>
+
+
+
+<section>
+  <ul>
+    <li *ngFor="let record of records; index as i;">
+        Record {{i+1}}: 
+        <dl>
+
+          <dt>id</dt>
+          <dd>{{record.id}}</dd>
+
+          <dt>name</dt>
+          <dd>{{record.name}}</dd>
+
+        </dl>
+    </li>
+  </ul>
+</section>

@@ -2,23 +2,33 @@
   <div class="logo">
     <img src="http://fakeimg.pl/300x100?text=fotos" alt="">
   </div>
-
+  
   <nav id="main-menu">
-
-      <ul>
-        <li>
-          <a routerLink="/nuevo-registro">
-            Nuevo Registro
-          </a>
-        </li>
-      </ul>
-
+    
+    <ul>
+      <li>
+        <a routerLink="/nuevo-registro">
+          Nuevo Registro
+        </a>
+      </li>
+      <li>
+        <a routerLink="/registro/0">
+          Un Registro
+        </a>
+      </li>
+      <li>
+        <a routerLink="/registros">
+          Lista Registros
+        </a>
+      </li>        
+    </ul>
+    
   </nav>
-
+  
 </header>
 
 <main>
-
+  
   <router-outlet></router-outlet>
-
+  
 </main>
