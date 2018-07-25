@@ -13,9 +13,12 @@
 
     &>nav {
         width: 80%;
-
+        ul {
+            display: flex;
+        }
         li {
             font-size: $font-s;
+            padding: 0 .5rem;
         }
     }
 
