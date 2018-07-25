@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { RecordNewComponent } from './record-new/record-new.component';
 import { RecordsRoutingModule } from "./records-routing.module";
+import { RecordNewComponent } from './record-new/record-new.component';
 
 @NgModule({
   imports: [
@@ -9,7 +9,7 @@ import { RecordsRoutingModule } from "./records-routing.module";
     RecordsRoutingModule
   ],
   declarations: [RecordNewComponent],
-  exports: []
+  exports: [RecordNewComponent]
 })
 
 export class RecordsModule { }

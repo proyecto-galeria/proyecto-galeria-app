@@ -1,3 +1,57 @@
-<p>
-  record-new works!
-</p>
+<header>
+  <nav>
+    <ul>
+      <li (click)="changeState(0)">Estado 1</li>
+      <li (click)="changeState(1)">Estado 2</li>
+      <li (click)="changeState(2)">Estado 3</li>
+      <li (click)="changeState(3)">Estado 4</li>
+      <li (click)="changeState(4)">Estado 5</li>
+      <li (click)="changeState(5)">Estado 6</li>
+      <li (click)="changeState(6)">Estado 7</li>
+    </ul>
+  </nav>
+</header>
+
+
+<section>
+
+  <ng-container [ngSwitch]="currentState">
+    
+    <section *ngSwitchCase="0">
+      state: RECORD_INFO
+
+      <button (click)="finishForm()">
+        Terminar Formulario
+      </button>
+    </section>
+
+    <section *ngSwitchCase="1">
+      state: CREATE_PHOTO
+    </section>
+
+    <section *ngSwitchCase="2">
+      state: REVIEW_PHOTO
+    </section>
+
+    <section *ngSwitchCase="3">
+      state: REVIEW_RECORD
+    </section>
+
+    <section *ngSwitchCase="4">
+      state: CHOOSE_RECIPIENTS
+    </section>
+
+    <section *ngSwitchCase="5">
+      state: ADD_EMAILS
+    </section>
+
+    <section *ngSwitchCase="6">
+      state: CONFIRM_SEND
+    </section>
+    
+  </ng-container>
+
+
+</section>
+
+
