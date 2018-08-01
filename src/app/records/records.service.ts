@@ -12,6 +12,7 @@ import { Observable } from 'rxjs';
 export class RecordsService {
 
   private endpointUrl: string = 'api/records';
+  
 
   constructor(private http: HttpClient) { }
 
@@ -29,4 +30,5 @@ export class RecordsService {
     .get<Record>(`${this.endpointUrl}/${record_id}/`)
     
   }
+
 }

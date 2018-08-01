@@ -9,6 +9,8 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from './app.component';
 
 import { RecordsModule } from "../app/records/records.module";
+
+// los siguientes dos componentes deberían migrarse a un Shared Module
 import { HomePageComponent } from './ui/home-page/home-page.component';
 import { NotFoundComponent } from './ui/not-found/not-found.component';
 
@@ -19,6 +21,7 @@ import { RecordsService } from "./records/records.service";
 @NgModule({
   declarations: [
     AppComponent,
+    // los siguientes dos componentes deberían migrarse a un Shared Module
     HomePageComponent,
     NotFoundComponent
   ],

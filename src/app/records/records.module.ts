@@ -11,7 +11,6 @@ import { RecordListComponent } from './record-list/record-list.component';
     RecordsRoutingModule
   ],
   declarations: [RecordNewComponent, RecordDetailComponent, RecordListComponent],
-  exports: [RecordNewComponent]
 })
 
 export class RecordsModule { }
