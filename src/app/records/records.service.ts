@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from "@angular/common/http";
 
-import { Record } from "./record.model";
+import { Record } from "../shared/models/record.model";
 
 import { Observable } from 'rxjs';
 

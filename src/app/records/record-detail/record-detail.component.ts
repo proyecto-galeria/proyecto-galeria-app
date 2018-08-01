@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from "@angular/router";
 
-import { Record } from "../record.model";
+import { Record } from "../../shared/models/record.model";
 
 @Component({
   selector: 'record-detail',
