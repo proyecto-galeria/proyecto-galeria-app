@@ -3,8 +3,8 @@
 </h1>
 
 <ul>
-  <li>
-    <a [routerLink]="['/instrucciones',0]">
+  <li *ngFor="let instruction of instructions; index as i">
+    <a [routerLink]="['/instrucciones', i ]">
       <header>
         <div class="concept">
           Nombre de Concepto
@@ -16,8 +16,7 @@
 
       <div class="description">
         <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Magni laborum repellat vitae, excepturi eaque fuga officiis aperiam
-          alias error nobis!
+          {{instruction.description}}
         </p>
       </div>
 
