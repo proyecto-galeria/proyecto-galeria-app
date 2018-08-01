@@ -3,6 +3,7 @@ import { RouterModule, Routes, ActivatedRouteSnapshot, RouterStateSnapshot } fro
 
 import { AppComponent } from './app.component';
 
+import { InstructionsModule } from "./instructions/instructions.module";
 
 import { RecordsModule } from './records/records.module';
 
@@ -16,6 +17,11 @@ const routes: Routes = [
   {
     path: '',
     component: HomePageComponent    
+  },
+
+  {
+    path: 'instrucciones',
+    loadChildren: './instructions/instructions.module#InstructionsModule'
   },
 
   {

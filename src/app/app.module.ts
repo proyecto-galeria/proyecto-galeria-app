@@ -8,6 +8,8 @@ import { HttpClientInMemoryWebApiModule } from 'angular-in-memory-web-api';
 import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from './app.component';
 
+import { SharedModule } from "./shared/shared.module";
+import { InstructionsModule } from "./instructions/instructions.module";
 import { RecordsModule } from "../app/records/records.module";
 
 // los siguientes dos componentes deberían migrarse a un Shared Module
@@ -27,6 +29,8 @@ import { RecordsService } from "./records/records.service";
   ],
   imports: [
     BrowserModule,
+    SharedModule,
+    InstructionsModule,
     RecordsModule,
     AppRoutingModule,
     HttpClientModule,
@@ -38,7 +42,9 @@ import { RecordsService } from "./records/records.service";
     ),
   ],
   providers: [
-    RecordsService
+    SharedModule,
+    // InstructionsModule,
+    // RecordsService
   ],
   bootstrap: [AppComponent]
 })
