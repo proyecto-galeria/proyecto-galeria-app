@@ -4,11 +4,21 @@ import { Concept } from "./concept.model";
 export interface Instruction {
 
 
+
+    // interrelaciones temporalmente via ID, en lo que resolvemos fetches secundarios
+    
     id: Number, // String // UUID
-    user: User,
     description: String,
     date: String, // DateTime
-    concept: Concept,
+    concept: Number,
 
+    user?: Number,
+
+    // id: Number, // String // UUID
+    // description: String,
+    // date: String, // DateTime
+    // concept: Concept,
+
+    // user?: User,
 
 }
