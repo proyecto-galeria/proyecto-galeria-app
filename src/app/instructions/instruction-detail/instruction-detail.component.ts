@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Instruction } from '../../shared/models/instruction.model';
+
 import { ConceptsService } from '../../concepts/concepts.service';
+import { Instruction } from '../../shared/models/instruction.model';
 
 @Component({
   selector: 'instruction-detail',
@@ -14,14 +15,14 @@ export class InstructionDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
-    private conceptService: ConceptsService,
+    private conceptsService: ConceptsService,
   ) { }
 
   ngOnInit() {
 
     this.instruction = this.route.snapshot.data['instruction'] || {};
-
-    this.conceptService.fetchConcept(this.instruction.concept)
+    
+    this.conceptsService.fetchConcept(this.instruction.concept)
     .subscribe( concept => this.instruction.concept_object = concept );
 
   }

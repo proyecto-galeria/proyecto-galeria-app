@@ -24,7 +24,7 @@ const routes: Routes = [
         path: ':instruction_id',
         component: InstructionDetailComponent,
         resolve: {
-          instructions: InstructionDetailResolver
+          instruction: InstructionDetailResolver
         }
       },
     ]
