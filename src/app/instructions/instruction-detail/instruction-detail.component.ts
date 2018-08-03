@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 import { ConceptsService } from '../../concepts/concepts.service';
+import { LocationsService } from '../../locations/locations.service';
+
 import { Instruction } from '../../shared/models/instruction.model';
 
 @Component({
@@ -16,6 +18,7 @@ export class InstructionDetailComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private conceptsService: ConceptsService,
+    private locationsService: LocationsService,
   ) { }
 
   ngOnInit() {
@@ -23,7 +26,14 @@ export class InstructionDetailComponent implements OnInit {
     this.instruction = this.route.snapshot.data['instruction'] || {};
     
     this.conceptsService.fetchConcept(this.instruction.concept)
-    .subscribe( concept => this.instruction.concept_object = concept );
+    .subscribe( concept => {
+      this.locationsService.fetchLocation(concept.location).subscribe(
+        location => {
+          concept.location_object = location;
+          this.instruction.concept_object = concept 
+        }
+      )
+    });
 
   }
 

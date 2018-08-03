@@ -4,7 +4,24 @@
   </div>
 
   <div class="concept">
-      {{instruction.concept_object?.name}}
+      
+      <div class="concept-name">
+        {{instruction.concept_object?.name}}
+      </div>
+
+      <div class="address">
+        {{instruction.concept_object?.location_object?.address}}
+      </div>
+  
+      <div class="latitude">
+        {{instruction.concept_object?.location_object?.latitude}}
+      </div>
+      <div class="longitude">
+        {{instruction.concept_object?.location_object?.longitude}}
+      </div>
+  
+
+        
   </div>
 </header>
 
