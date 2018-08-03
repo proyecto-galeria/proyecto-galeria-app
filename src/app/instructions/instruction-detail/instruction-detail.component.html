@@ -1,3 +1,13 @@
-<p>
-  instruction-detail works!
+<header>
+  <div class="date">
+      {{instruction.date}}
+  </div>
+
+  <div class="concept">
+      {{instruction.concept_object?.name}}
+  </div>
+</header>
+
+<p class="description">
+  {{instruction.description}}
 </p>
