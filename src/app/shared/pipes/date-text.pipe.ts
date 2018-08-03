@@ -10,7 +10,7 @@ export class DateTextPipe implements PipeTransform, OnDestroy {
 		this.removeTimer();
 		let d = new Date(value);
 		let now = new Date();
-		let seconds = Math.round(Math.abs((now.getTime() - d.getTime())/1000));
+		let seconds = Math.round((now.getTime() - d.getTime())/1000);
 		let timeToUpdate = (Number.isNaN(seconds)) ? 1000 : this.getSecondsUntilUpdate(seconds) *1000;
 		this.timer = this.ngZone.runOutsideAngular(() => {
 			if (typeof window !== 'undefined') {
@@ -19,37 +19,71 @@ export class DateTextPipe implements PipeTransform, OnDestroy {
 				}, timeToUpdate);
 			}
 			return null;
-		});
-		let minutes = Math.round(Math.abs(seconds / 60));
-		let hours = Math.round(Math.abs(minutes / 60));
-		let days = Math.round(Math.abs(hours / 24));
-		let months = Math.round(Math.abs(days/30.416));
-		let years = Math.round(Math.abs(days/365));
+        });
+        
+
+        let minutes = Math.round(seconds / 60);
+		let hours = Math.round(minutes / 60);
+		let days = Math.round(hours / 24);
+		let months = Math.round(days/30.416);
+        let years = Math.round(days/365);
+        
+        // in past: 
+
 		if (Number.isNaN(seconds)){
 			return '';
-		} else if (seconds <= 45) {
+		} else if ( seconds>0 && seconds <= 45) {
 			return 'a few seconds ago';
-		} else if (seconds <= 90) {
+		} else if ( seconds>0 && seconds <= 90) {
 			return 'a minute ago';
-		} else if (minutes <= 45) {
+		} else if ( minutes>0 && minutes <= 45) {
 			return minutes + ' minutes ago';
-		} else if (minutes <= 90) {
+		} else if ( minutes>0 && minutes <= 90) {
 			return 'an hour ago';
-		} else if (hours <= 22) {
+		} else if ( hours>0 && hours <= 22) {
 			return hours + ' hours ago';
-		} else if (hours <= 36) {
+		} else if ( hours>0 && hours <= 36) {
 			return 'a day ago';
-		} else if (days <= 25) {
+		} else if ( days>0 && days <= 25) {
 			return days + ' days ago';
-		} else if (days <= 45) {
+		} else if ( days>0 && days <= 45) {
 			return 'a month ago';
-		} else if (days <= 345) {
+		} else if ( days>0 && days <= 345) {
 			return months + ' months ago';
-		} else if (days <= 545) {
+		} else if ( days>0 && days <= 545) {
 			return 'a year ago';
-		} else { // (days > 545)
+        } else if ( days>0 && days >= 545){ // (days > 545)
 			return years + ' years ago';
-		}
+        }
+            
+
+        // future: 
+
+        else if ( seconds<0 && Math.abs(seconds) <= 45) {
+            return 'in a few seconds';
+        } else if ( seconds<0 && Math.abs(seconds) <= 90) {
+            return 'in a minute';
+        } else if ( minutes<0 && Math.abs(minutes) <= 45) {
+            return Math.abs(minutes) + ' minutes';
+        } else if ( minutes<0 && Math.abs(minutes) <= 90) {
+            return 'in an hour';
+        } else if ( hours<0 && Math.abs(hours) <= 22) {
+            return Math.abs(hours) + ' hours';
+        } else if ( hours<0 && Math.abs(hours) <= 36) {
+            return 'in a day';
+        } else if ( days<0 && Math.abs(days) <= 25) {
+            return 'in ' + Math.abs(days) + ' days';
+        } else if ( days<0 && Math.abs(days) <= 45) {
+            return 'in a month';
+        } else if ( days<0 && Math.abs(days) <= 345) {
+            return 'in ' + Math.abs(months) + ' months';
+        } else if ( days<0 && Math.abs(days) <= 545) {
+            return 'in a year';
+        } else if ( days<0 && Math.abs(days) >= 545){ // (days > 545)
+			return 'in ' + Math.abs(years) + ' years';
+        }
+           
+        
 	}
 	ngOnDestroy(): void {
 		this.removeTimer();
