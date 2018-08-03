@@ -2,9 +2,10 @@ import { Location } from "./location.model";
 
 export interface Concept {
 
-    id: Number, // String // UUID
-    name: String,
-    description: String,
-    location: Location,
+    id: number, // string // UUID
+    name: string,
+    description: string,
+    location: number,
+    location_object?: Location
 
 }

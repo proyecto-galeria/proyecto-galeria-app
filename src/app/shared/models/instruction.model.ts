@@ -7,16 +7,17 @@ export interface Instruction {
 
     // interrelaciones temporalmente via ID, en lo que resolvemos fetches secundarios
     
-    id: Number, // String // UUID
-    description: String,
-    date: String, // DateTime
-    concept: Number,
+    id: number, // string // UUID
+    description: string,
+    date: string, // DateTime
+    concept: number,
+    concept_object?: Concept,
 
-    user?: Number,
+    user?: number,
 
-    // id: Number, // String // UUID
-    // description: String,
-    // date: String, // DateTime
+    // id: number, // string // UUID
+    // description: string,
+    // date: string, // DateTime
     // concept: Concept,
 
     // user?: User,

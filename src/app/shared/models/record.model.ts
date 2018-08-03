@@ -4,15 +4,15 @@ import { User } from "./user.model";
 export interface Record {
 
 
-    id: Number, // String // UUID
+    id: number, // string // UUID
     user: User,
-    date: String, // DateTime
+    date: string, // DateTime
     name: string,
     comments: string,
     instruction: Instruction,
-    photo: String,
+    photo: string,
     sent: boolean,
-    recipients: String[],
+    recipients: string[],
 
 
 }

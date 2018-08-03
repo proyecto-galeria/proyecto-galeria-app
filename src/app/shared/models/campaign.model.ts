@@ -3,11 +3,11 @@ import { Concept } from "./concept.model";
 
 export interface Campaign {
 
-    id: Number, // String // UUID
-    name: String,
+    id: number, // string // UUID
+    name: string,
     client: User,
-    start_date: String, // DateTime
-    end_date: String, // DateTime
+    start_date: string, // DateTime
+    end_date: string, // DateTime
     concepts: Concept[],
 
 
