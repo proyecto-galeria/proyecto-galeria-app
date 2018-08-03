@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { AgmCoreModule, AgmMap, AgmMarker } from "@agm/core";
 
 import { SharedRoutingModule } from './shared-routing.module';
+import { DateTextPipe } from './pipes/date-text.pipe';
 
 @NgModule({
   imports: [
@@ -11,9 +12,10 @@ import { SharedRoutingModule } from './shared-routing.module';
     AgmCoreModule.forRoot({
       apiKey: 'AIzaSyCEqQWUTDJJS6uWJXAdWQRA381hGoI1oHk'
     }),
-    SharedRoutingModule
+    SharedRoutingModule,
+    
   ],
-  declarations: [],
-  exports: [AgmMap, AgmMarker]
+  declarations: [DateTextPipe],
+  exports: [AgmMap, AgmMarker, DateTextPipe]
 })
 export class SharedModule { }

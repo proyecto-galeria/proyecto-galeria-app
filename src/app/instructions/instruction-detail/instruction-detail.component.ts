@@ -25,6 +25,8 @@ export class InstructionDetailComponent implements OnInit {
 
     this.instruction = this.route.snapshot.data['instruction'] || {};
     
+    this.date = new Date( this.instruction.date );
+
     this.conceptsService.fetchConcept(this.instruction.concept)
     .subscribe( concept => {
       this.locationsService.fetchLocation(concept.location).subscribe(
