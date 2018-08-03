@@ -13,18 +13,22 @@
         {{instruction.concept_object?.location_object?.address}}
       </div>
   
-      <div class="latitude">
-        {{instruction.concept_object?.location_object?.latitude}}
-      </div>
-      <div class="longitude">
-        {{instruction.concept_object?.location_object?.longitude}}
-      </div>
-  
-
-        
   </div>
 </header>
 
 <p class="description">
   {{instruction.description}}
 </p>
+
+<div class="map">
+  <agm-map
+  [latitude]="instruction.concept_object?.location_object?.latitude"
+  [longitude]="instruction.concept_object?.location_object?.longitude"
+  [zoom]="15"
+  >
+    <agm-marker
+    [latitude]="instruction.concept_object?.location_object?.latitude"
+    [longitude]="instruction.concept_object?.location_object?.longitude"
+    ></agm-marker>
+  </agm-map>
+</div>

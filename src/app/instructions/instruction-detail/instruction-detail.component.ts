@@ -9,7 +9,7 @@ import { Instruction } from '../../shared/models/instruction.model';
 @Component({
   selector: 'instruction-detail',
   templateUrl: './instruction-detail.component.html',
-  styleUrls: ['./instruction-detail.component.css']
+  styleUrls: ['./instruction-detail.component.scss']
 })
 export class InstructionDetailComponent implements OnInit {
 

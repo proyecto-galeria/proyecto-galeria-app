@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
-import { AgmCoreModule } from "@agm/core";
+import { AgmCoreModule, AgmMap, AgmMarker } from "@agm/core";
 
 import { SharedRoutingModule } from './shared-routing.module';
 
@@ -13,6 +13,7 @@ import { SharedRoutingModule } from './shared-routing.module';
     }),
     SharedRoutingModule
   ],
-  declarations: []
+  declarations: [],
+  exports: [AgmMap, AgmMarker]
 })
 export class SharedModule { }
