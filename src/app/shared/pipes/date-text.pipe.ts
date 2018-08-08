@@ -1,4 +1,56 @@
 import {Pipe, PipeTransform, NgZone, ChangeDetectorRef, OnDestroy} from "@angular/core";
+
+const languages = {
+
+	en: {
+		past: {
+			seconds: (time) => { return 'a few seconds ago' },
+			minute: (time) => { return 'a minute ago' },
+			minutes: (time) => { return 'minutes ago' },
+			hour: (time) => { return 'an hour ago' },
+			hours: (time) => { return time + ' hours ago' },
+			day: (time) => { return 'a day ago' },
+			days: (time) => { return time + ' days ago' },
+			month: (time) => { return 'a month ago' },
+			months: (time) => { return time + ' months ago' },
+			year: (time) => { return 'a year ago' },
+			years: (time) => { return time + ' years ago' },	
+		},
+		future: {
+			seconds: (time) => { 'in a few seconds' },
+			minute: (time) => { 'in a minute' },
+			minutes: (time) => { 'in ' + time + ' minutes' },
+			hour: (time) => { 'in an hour' },
+			hours: (time) => { 'in ' + time + ' hours' },
+			day: (time) => { 'in a day' },
+			days: (time) => { 'in ' + time + ' days' },
+			month: (time) => { 'in a month' },
+			months: (time) => { 'in ' + time + ' months' },
+			year: (time) => { 'in a year' },
+			years: (time) => { 'in ' + time + ' years' },
+		}
+	},
+
+	es: {
+		past: {
+			seconds: (time) => { return 'hace unos segundos' },
+			minute: (time) => { return 'hace un minuto' },
+			minutes: (time) => { return 'hace ' + time + ' unos minutos' },
+			hour: (time) => { return 'hace una hora' },
+			hours: (time) => { return 'hace ' + time + ' horas' },
+			day: (time) => { return 'hace un día' },
+			days: (time) => { return 'hace ' + time + ' dìas' },
+			month: (time) => { return 'hace un mes' },
+			months: (time) => { return 'hace ' + time + ' meses' },
+			year: (time) => { return 'hace un año' },
+			years: (time) => { return 'hace ' + time + ' años' },	
+		}
+	}
+
+};
+
+const currentLanguage = languages.es;
+
 @Pipe({
 	name:'dateText',
 	pure:false
@@ -33,27 +85,27 @@ export class DateTextPipe implements PipeTransform, OnDestroy {
 		if (Number.isNaN(seconds)){
 			return '';
 		} else if ( seconds>0 && seconds <= 45) {
-			return 'a few seconds ago';
+			return currentLanguage.past.seconds(0);
 		} else if ( seconds>0 && seconds <= 90) {
-			return 'a minute ago';
+			return currentLanguage.past.minute(0);
 		} else if ( minutes>0 && minutes <= 45) {
-			return minutes + ' minutes ago';
+			return currentLanguage.past.minutes(minutes);
 		} else if ( minutes>0 && minutes <= 90) {
-			return 'an hour ago';
+			return currentLanguage.past.hour(0);
 		} else if ( hours>0 && hours <= 22) {
-			return hours + ' hours ago';
+			return currentLanguage.past.hours(hours)
 		} else if ( hours>0 && hours <= 36) {
-			return 'a day ago';
+			return currentLanguage.past.day(0);
 		} else if ( days>0 && days <= 25) {
-			return days + ' days ago';
+			return currentLanguage.past.days(days);
 		} else if ( days>0 && days <= 45) {
-			return 'a month ago';
+			return currentLanguage.past.month(0);
 		} else if ( days>0 && days <= 345) {
-			return months + ' months ago';
+			return currentLanguage.past.months(months);
 		} else if ( days>0 && days <= 545) {
-			return 'a year ago';
+			return currentLanguage.past.year(0);
         } else if ( days>0 && days >= 545){ // (days > 545)
-			return years + ' years ago';
+			return currentLanguage.past.years(years);
         }
             
 
