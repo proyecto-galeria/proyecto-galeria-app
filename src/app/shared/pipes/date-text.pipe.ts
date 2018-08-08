@@ -1,52 +1,13 @@
 import {Pipe, PipeTransform, NgZone, ChangeDetectorRef, OnDestroy} from "@angular/core";
 
+import { language_en } from "./date-text-pipe/languages/language_en";
+import { language_es } from "./date-text-pipe/languages/language_es";
+import { language_de } from "./date-text-pipe/languages/language_de";
+
 const languages = {
-
-	en: {
-		past: {
-			seconds: (time) => { return 'a few seconds ago' },
-			minute: (time) => { return 'a minute ago' },
-			minutes: (time) => { return 'minutes ago' },
-			hour: (time) => { return 'an hour ago' },
-			hours: (time) => { return time + ' hours ago' },
-			day: (time) => { return 'a day ago' },
-			days: (time) => { return time + ' days ago' },
-			month: (time) => { return 'a month ago' },
-			months: (time) => { return time + ' months ago' },
-			year: (time) => { return 'a year ago' },
-			years: (time) => { return time + ' years ago' },	
-		},
-		future: {
-			seconds: (time) => { 'in a few seconds' },
-			minute: (time) => { 'in a minute' },
-			minutes: (time) => { 'in ' + time + ' minutes' },
-			hour: (time) => { 'in an hour' },
-			hours: (time) => { 'in ' + time + ' hours' },
-			day: (time) => { 'in a day' },
-			days: (time) => { 'in ' + time + ' days' },
-			month: (time) => { 'in a month' },
-			months: (time) => { 'in ' + time + ' months' },
-			year: (time) => { 'in a year' },
-			years: (time) => { 'in ' + time + ' years' },
-		}
-	},
-
-	es: {
-		past: {
-			seconds: (time) => { return 'hace unos segundos' },
-			minute: (time) => { return 'hace un minuto' },
-			minutes: (time) => { return 'hace ' + time + ' unos minutos' },
-			hour: (time) => { return 'hace una hora' },
-			hours: (time) => { return 'hace ' + time + ' horas' },
-			day: (time) => { return 'hace un día' },
-			days: (time) => { return 'hace ' + time + ' dìas' },
-			month: (time) => { return 'hace un mes' },
-			months: (time) => { return 'hace ' + time + ' meses' },
-			year: (time) => { return 'hace un año' },
-			years: (time) => { return 'hace ' + time + ' años' },	
-		}
-	}
-
+	en: language_en,
+	es: language_es,
+	de: language_de,
 };
 
 const currentLanguage = languages.es;
@@ -112,27 +73,27 @@ export class DateTextPipe implements PipeTransform, OnDestroy {
         // future: 
 
         else if ( seconds<0 && Math.abs(seconds) <= 45) {
-            return 'in a few seconds';
+            return currentLanguage.future.seconds(0);
         } else if ( seconds<0 && Math.abs(seconds) <= 90) {
-            return 'in a minute';
+            return currentLanguage.future.minute(0);
         } else if ( minutes<0 && Math.abs(minutes) <= 45) {
-            return Math.abs(minutes) + ' minutes';
+            return currentLanguage.future.minutes(minutes);
         } else if ( minutes<0 && Math.abs(minutes) <= 90) {
-            return 'in an hour';
+            return currentLanguage.future.hour(0);
         } else if ( hours<0 && Math.abs(hours) <= 22) {
-            return Math.abs(hours) + ' hours';
+            return currentLanguage.future.hours(hours);
         } else if ( hours<0 && Math.abs(hours) <= 36) {
-            return 'in a day';
+            return currentLanguage.future.day(0);
         } else if ( days<0 && Math.abs(days) <= 25) {
-            return 'in ' + Math.abs(days) + ' days';
+            return currentLanguage.future.days(days);
         } else if ( days<0 && Math.abs(days) <= 45) {
-            return 'in a month';
+            return currentLanguage.future.month(0);
         } else if ( days<0 && Math.abs(days) <= 345) {
-            return 'in ' + Math.abs(months) + ' months';
+            return currentLanguage.future.months(months);
         } else if ( days<0 && Math.abs(days) <= 545) {
-            return 'in a year';
+            return currentLanguage.future.year(0);
         } else if ( days<0 && Math.abs(days) >= 545){ // (days > 545)
-			return 'in ' + Math.abs(years) + ' years';
+			return currentLanguage.future.years(years);
         }
            
         
