@@ -6,11 +6,16 @@ import { cloudinaryKeys } from "./cloudinary-keys";
 
 export const environment = {
   production: false,
-
+  agm: {
+    api_key: 'AIzaSyCEqQWUTDJJS6uWJXAdWQRA381hGoI1oHk'
+  },
   cloudinary: {
+    cloud_name: 'alanllamas',
+    upload_preset: 'unsigned-upload-preset',
     api_key: cloudinaryKeys.api_key,
     api_secret: cloudinaryKeys.api_secret
-  }
+  },
+
 };
 
 /*

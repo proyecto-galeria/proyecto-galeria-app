@@ -20,6 +20,12 @@ import { BackendFakeService } from "./core/services/backend-fake/backend-fake.se
 
 import { RecordsService } from "./records/records.service";
 
+
+import { CloudinaryModule, CloudinaryConfiguration, Cloudinary } from '@cloudinary/angular-5.x';
+
+import { FileUploadModule } from 'ng2-file-upload';
+import { environment } from '../environments/environment';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -40,6 +46,12 @@ import { RecordsService } from "./records/records.service";
         passThruUnknownUrl: true
       }
     ),
+
+
+    CloudinaryModule.forRoot({Cloudinary}, {
+      cloud_name: environment.cloudinary.cloud_name
+    } as CloudinaryConfiguration),
+
   ],
   providers: [
     SharedModule,

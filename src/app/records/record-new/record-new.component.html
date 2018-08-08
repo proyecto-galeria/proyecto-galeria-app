@@ -40,6 +40,26 @@
 
     <section *ngSwitchCase="1">
       state: CREATE_PHOTO
+     
+
+      <webcam [height]="300" [width]="300"
+      [trigger]="triggerObservable"
+      (imageCapture)="handleImage($event)"
+      ></webcam>
+      <!-- *ngIf="showWebcam" -->
+      <!-- [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" -->
+      <!-- [videoOptions]="videoOptions" -->
+      <!-- (initError)="handleInitError($event)" -->
+      <!-- (cameraSwitched)="cameraWasSwitched($event)" -->
+      <br/>
+      <button class="actionBtn" (click)="triggerSnapshot();">Tomar Foto</button>
+
+      <div class="webcam-image" *ngIf="!!uploadedImage">
+        <img src="{{uploadedImage}}" alt="" width="200" height="200">
+      </div>
+      
+      <photo-upload></photo-upload>
+
     </section>
 
     <section *ngSwitchCase="2">
