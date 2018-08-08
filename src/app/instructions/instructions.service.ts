@@ -13,6 +13,8 @@ export class InstructionsService {
 
   private endpointUrl: string = 'api/instructions';
 
+  private currentInstruction: number; 
+
   constructor(private http: HttpClient) { }
 
 
@@ -29,5 +31,12 @@ export class InstructionsService {
     .get<Instruction>(`${this.endpointUrl}/${instruction_id}/`)
     
   }
+
+
+  // setCurrentInstruction( instruction_id: number ) {
+
+  //   this.currentInstruction = instruction_id;
+
+  // }
 
 }

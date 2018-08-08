@@ -5,6 +5,7 @@ import { ConceptsService } from '../../concepts/concepts.service';
 import { LocationsService } from '../../locations/locations.service';
 
 import { Instruction } from '../../shared/models/instruction.model';
+import { InstructionsService } from '../instructions.service';
 
 @Component({
   selector: 'instruction-detail',
@@ -17,6 +18,7 @@ export class InstructionDetailComponent implements OnInit {
 
   constructor(
     private route: ActivatedRoute,
+    // private instructionsService: InstructionsService,
     private conceptsService: ConceptsService,
     private locationsService: LocationsService,
   ) { }
@@ -24,6 +26,8 @@ export class InstructionDetailComponent implements OnInit {
   ngOnInit() {
 
     this.instruction = this.route.snapshot.data['instruction'] || {};
+    
+    // this.instructionsService.setCurrentInstruction( this.instruction.id );
     
     this.conceptsService.fetchConcept(this.instruction.concept)
     .subscribe( concept => {

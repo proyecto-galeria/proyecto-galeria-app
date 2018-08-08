@@ -25,7 +25,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'nuevo-registro',
+    path: 'nuevo-registro/',
     loadChildren: './records/records.module#RecordsModule'
   },
 

@@ -20,6 +20,19 @@
     <section *ngSwitchCase="0">
       state: RECORD_INFO
 
+      <header>
+
+        <div class="concept-info">
+          <h3>
+            {{instruction.concept_object?.name}}            
+          </h3>
+          <p class="address">
+            {{instruction.concept_object?.location_object?.address}}                        
+          </p>
+        </div>
+
+      </header>
+
       <button (click)="finishForm()">
         Terminar Formulario
       </button>

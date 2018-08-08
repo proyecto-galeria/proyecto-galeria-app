@@ -20,6 +20,16 @@
   {{instruction.description}}
 </p>
 
+<footer>
+
+  <a [routerLink]="['/nuevo-registro',instruction.id]">
+    <button>
+      Realizar Tarea
+    </button>
+  </a>
+
+</footer>
+
 <div class="map">
   <agm-map
   [latitude]="instruction.concept_object?.location_object?.latitude"

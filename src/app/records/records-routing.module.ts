@@ -7,11 +7,15 @@ import { RecordListComponent } from "./record-list/record-list.component";
 
 import { RecordListResolver } from './record-list/record-list.resolver';
 import { RecordDetailResolver } from './record-detail/record-detail.resolver';
+import { InstructionDetailResolver } from '../instructions/instruction-detail/instruction-detail.resolver';
 
 const routes: Routes = [
   {
-    path: 'nuevo-registro',
-    component: RecordNewComponent
+    path: 'nuevo-registro/:instruction_id',
+    component: RecordNewComponent,
+    resolve: {
+      instruction: InstructionDetailResolver
+    }
   },
   {
     path: 'registro/:record_id',
