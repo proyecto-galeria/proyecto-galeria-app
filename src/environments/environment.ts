@@ -2,8 +2,15 @@
 // `ng build ---prod` replaces `environment.ts` with `environment.prod.ts`.
 // The list of file replacements can be found in `angular.json`.
 
+import { cloudinaryKeys } from "./cloudinary-keys";
+
 export const environment = {
-  production: false
+  production: false,
+
+  cloudinary: {
+    api_key: cloudinaryKeys.api_key,
+    api_secret: cloudinaryKeys.api_secret
+  }
 };
 
 /*
