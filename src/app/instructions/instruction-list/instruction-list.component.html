@@ -7,10 +7,10 @@
     <a [routerLink]="['/instrucciones', i ]">
       <header>
         <div class="concept">
-          Nombre de Concepto
+          {{ instruction.concept_object?.name }}
         </div>
         <div class="date">
-          1/1/18
+          {{ instruction.date | dateText }}
         </div>
       </header>
 
