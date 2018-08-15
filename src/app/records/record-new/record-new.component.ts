@@ -10,6 +10,8 @@ import {WebcamImage, WebcamInitError, WebcamUtil} from 'ngx-webcam';
 import { ActivatedRoute } from "@angular/router";
 import { ConceptsService } from '../../concepts/concepts.service';
 import { LocationsService } from '../../locations/locations.service';
+import { RecordsService } from '../../records/records.service';
+import { Record } from '../../shared/models/record.model'
 
 enum RECORD_STATES {
   RECORD_INFO = 0,
@@ -31,6 +33,7 @@ export class RecordNewComponent implements OnInit {
   
   public currentState;
   public instruction: Instruction;
+  public records: Array<Record>;
   
   public webcamImage: WebcamImage = null;
   
@@ -44,6 +47,7 @@ export class RecordNewComponent implements OnInit {
     private route: ActivatedRoute,
     private conceptsService: ConceptsService,
     private locationsService: LocationsService,
+    private recordsService: RecordsService,
   ) {
     this.currentState = RECORD_STATES.RECORD_INFO;
   }
@@ -69,6 +73,39 @@ export class RecordNewComponent implements OnInit {
   }
 
   finishForm() {
+    // Cachar datos y crea new Record
+    // FRENK
+    let newReco: Record = {
+      id: 123,
+      user: {
+        id: 1234,
+        first_name: 'Rorri',
+        last_name: 'Frnk',
+        email: 'a@gmail.com',
+        username: 'furenku',
+        role: {
+          id: 12345,
+          name: 'rol',
+          capabilities: ['asd']
+        }
+      },
+      date: '2045-12-12',
+      name: 'nombre falso',
+      comments: 'HOOOOUdajskdaskdjashd',
+      instruction: this.instruction,
+      photo: 'asd',
+      sent: false,
+      recipients: ['a', 'b']
+    }
+    
+    // 
+    // Hacer la llamada al servicio
+    this.recordsService.addRecord(newReco)
+      .subscribe(hero => {
+        console.log(hero)
+        this.records.push(hero)
+      });
+    // 
     this.currentState = RECORD_STATES.CREATE_PHOTO;
   }
 

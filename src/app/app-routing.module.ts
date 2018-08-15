@@ -11,7 +11,6 @@ import { HomePageComponent } from './ui/home-page/home-page.component';
 import { NotFoundComponent } from './ui/not-found/not-found.component';
 
 
-
 const routes: Routes = [
 
   {
