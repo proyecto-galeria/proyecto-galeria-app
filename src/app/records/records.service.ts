@@ -8,7 +8,7 @@ import { Observable } from 'rxjs';
 const httpOptions = {
   headers: new HttpHeaders({
     'Content-Type':  'application/json',
-    'Authorization': 'my-auth-token'
+    // 'Authorization': 'my-auth-token'
   })
 };
 
@@ -38,12 +38,9 @@ export class RecordsService {
   }
 
   addRecord (record: Record): Observable<Record> {
-    return this.http.post<Record>(this.endpointUrl, record, httpOptions)
-      .pipe(
-        // FRENK
-        // catchError(this.handleError('addRecord', record))
-        console.log()
-      );
+    return 
+    this.http.post(this.endpointUrl, record)
+      
   }
 
 }

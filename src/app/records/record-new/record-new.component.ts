@@ -100,12 +100,12 @@ export class RecordNewComponent implements OnInit {
     
     // 
     // Hacer la llamada al servicio
+    console.log(newReco)
     this.recordsService.addRecord(newReco)
-      .subscribe(hero => {
-        console.log(hero)
-        this.records.push(hero)
-      });
-    // 
+      // .subscribe(newReco => {
+      // });
+      
+      // this.records.push(newReco)
     this.currentState = RECORD_STATES.CREATE_PHOTO;
   }
 

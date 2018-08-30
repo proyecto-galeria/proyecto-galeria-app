@@ -6,6 +6,7 @@ import { InstructionListComponent } from './instruction-list/instruction-list.co
 import { InstructionDetailComponent } from './instruction-detail/instruction-detail.component';
 import { InstructionsService } from './instructions.service';
 import { SharedModule } from '../shared/shared.module';
+import { InstructionNewComponent } from './instruction-new/instruction-new.component';
 
 @NgModule({
   imports: [
@@ -13,7 +14,7 @@ import { SharedModule } from '../shared/shared.module';
     SharedModule,
     InstructionsRoutingModule
   ],
-  declarations: [InstructionListComponent, InstructionDetailComponent],
+  declarations: [InstructionListComponent, InstructionDetailComponent, InstructionNewComponent],
   providers: [InstructionsService]
 })
 export class InstructionsModule { }

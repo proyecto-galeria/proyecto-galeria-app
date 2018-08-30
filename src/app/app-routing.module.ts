@@ -9,6 +9,7 @@ import { RecordsModule } from './records/records.module';
 
 import { HomePageComponent } from './ui/home-page/home-page.component';
 import { NotFoundComponent } from './ui/not-found/not-found.component';
+import { InstructionListComponent } from './instructions/instruction-list/instruction-list.component';
 
 
 const routes: Routes = [
@@ -17,6 +18,10 @@ const routes: Routes = [
     path: '',
     component: HomePageComponent    
   },
+  // {
+  //   path: '',
+  //   component: InstructionListComponent    
+  // },
 
   {
     path: 'instrucciones',

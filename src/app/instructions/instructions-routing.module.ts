@@ -6,6 +6,7 @@ import { InstructionDetailComponent } from "./instruction-detail/instruction-det
 
 import { InstructionDetailResolver } from './instruction-detail/instruction-detail.resolver';
 import { InstructionListResolver } from './instruction-list/instruction-list.resolver';
+import { InstructionNewComponent } from './instruction-new/instruction-new.component';
 
 const routes: Routes = [
   {
@@ -21,12 +22,22 @@ const routes: Routes = [
         // ]
       },
       {
+        path: 'new',
+        component: InstructionNewComponent,
+        // resolve: {
+        //   instructions: InstructionListResolver
+        // }
+        // children: [
+        // ]
+      },
+      {
         path: ':instruction_id',
         component: InstructionDetailComponent,
         resolve: {
           instruction: InstructionDetailResolver
         }
       },
+      
     ]
   }
 ];
