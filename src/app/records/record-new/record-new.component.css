@@ -8,7 +8,8 @@
 .circles{
     display: flex;
     margin-bottom: 3%;
-    width: 70%;
+    width: 100%;
+    justify-content: center;
     /* list-style: none; */
 }
 .circles > div{
@@ -43,3 +44,27 @@ button{
     }
 }
 
+.email_recipients label {
+    width: 70%;
+    /* float: left; */
+}
+
+.add_email_form button {
+    margin-top: 2rem;
+}
+
+.email_recipients label input {
+    width: 100%;
+}
+
+
+.users li, .extra_emails li {
+    list-style: none;
+    font-size: 13px;
+    margin-bottom: 1rem;
+}
+
+
+.send_success {
+    text-align: center;
+}

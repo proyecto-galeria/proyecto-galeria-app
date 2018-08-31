@@ -93,16 +93,18 @@
             <button class="btn btn-lg actionBtn" (click)="changeState(4)">continuar</button>
           </section>
       
-          <section *ngSwitchCase="4">
-            <label>
-              <span>
-                Agrega un correo
-              </span>
-              <input #newEmail name="" type="text">
-            </label>
-
-            <button class="btn btn-sm" (click)="addEmail(newEmail)">Agregar</button>
-
+          <section class="email_recipients" *ngSwitchCase="4">
+            <div class="add_email_form">
+                <label>
+                    <span>
+                      Agrega un correo
+                    </span>
+                    <input #newEmail name="" type="text">
+                  </label>
+      
+                  <button class="btn btn-sm" (click)="addEmail(newEmail)">Agregar</button>
+      
+            </div>
 
             <ul class="users">
               <li *ngFor="let user of users;">
@@ -133,7 +135,7 @@
             </button>
           </section>
       
-          <section *ngSwitchCase="5">
+          <section class="send_success" *ngSwitchCase="5">
 
             <p>El registro se ha creado satisfactoriamente.</p>
 
