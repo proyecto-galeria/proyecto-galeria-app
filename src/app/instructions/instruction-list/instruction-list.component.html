@@ -4,7 +4,7 @@
       </h1>
       
       <ul>
-        <li *ngFor="let instruction of instructions; index as i">
+        <li class="instruction-preview" *ngFor="let instruction of instructions; index as i">
           <a [routerLink]="['/instrucciones', i ]">
             <header>
               <h3 class="concept">
@@ -14,6 +14,11 @@
                 {{ instruction.date | dateText }}
               </h4>
             </header>
+            <footer class="location">
+              <h6>
+                {{ instruction.concept_object?.location_object?.name }}
+              </h6>
+            </footer>
           </a>
         </li>
       </ul>

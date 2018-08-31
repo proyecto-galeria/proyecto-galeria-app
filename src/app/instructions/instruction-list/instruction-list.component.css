@@ -34,3 +34,8 @@ li:hover{
 a{
 color: black;
 }
+
+
+.instruction-preview footer {
+    text-align: center;
+}
