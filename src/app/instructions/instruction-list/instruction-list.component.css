@@ -1,11 +1,9 @@
  .date{
-     /* font-size: .8rem; */
      margin: 10px;
      color: #757575;
  }
  .concept{
     margin: 10px
-     /* margin-bottom: 5px; */
  }
 section{
     display: flex;
@@ -15,7 +13,7 @@ section{
 h1{
     text-align: center;
     border-bottom: #607D8B solid 1px;
-    /* width: 25%; */
+
 }
 header{
     display: flex;
