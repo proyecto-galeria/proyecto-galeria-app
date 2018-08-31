@@ -1,0 +1,16 @@
+.main{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+
+form{
+    margin: 3%;
+    display: flex;
+    flex-flow: column nowrap;
+}
+.button{
+    margin-top: 2%;
+    background: #607D8B;
+    color: white;
+}
