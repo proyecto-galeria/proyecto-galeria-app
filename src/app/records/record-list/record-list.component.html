@@ -7,16 +7,18 @@
 <section>
   <ul>
     <li *ngFor="let record of records; index as i;">
-        Record {{i+1}}: 
-        <dl>
-
-          <dt>id</dt>
-          <dd>{{record.id}}</dd>
-
-          <dt>name</dt>
-          <dd>{{record.name}}</dd>
-
-        </dl>
+        <!-- Record {{i+1}}:  -->
+        <a [routerLink]="['/registro', i ]">
+          <dl>
+            
+            <dt>id</dt>
+            <dd>{{record.id}}</dd>
+            
+            <dt>name</dt>
+            <dd>{{record.name}}</dd>
+            
+          </dl>
+        </a>
     </li>
   </ul>
 </section>
