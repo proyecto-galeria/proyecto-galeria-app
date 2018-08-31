@@ -19,9 +19,8 @@ export class InstructionsService {
 
 
   fetchInstructions(): Observable<Instruction[]> {
-      let inst = this.http.get<Instruction[]>(`${this.endpointUrl}/`)
-
-      
+    let inst = this.http.get<Instruction[]>(`${this.endpointUrl}/`)
+ 
     return inst
 
   }

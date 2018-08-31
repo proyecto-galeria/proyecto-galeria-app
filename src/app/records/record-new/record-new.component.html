@@ -94,19 +94,49 @@
           </section>
       
           <section *ngSwitchCase="4">
-            <label for="mail">Agrega un correo</label>
-            <input type="text">
-            <button class="btn btn-sm">agregar</button>
-            <ul>
-              <li>Correo1</li>
-              <li>Correo2</li>
-              <li>Correo3</li>
+            <label>
+              <span>
+                Agrega un correo
+              </span>
+              <input #newEmail name="" type="text">
+            </label>
+
+            <button class="btn btn-sm" (click)="addEmail(newEmail)">Agregar</button>
+
+
+            <ul class="users">
+              <li *ngFor="let user of users;">
+                <div class="name">
+                  {{user.first_name}} {{user.last_name}} 
+                </div>
+                <div class="email">
+                  {{user.email}}
+                </div>                
+              </li>
             </ul>
-            <button class="btn btn-lg btn-success " (click)="finishForm()">send</button>
+
+            <h4>
+              Correos adicionales
+            </h4>
+
+            <ul class="extra_emails">
+              <li *ngFor="let email of extra_emails;">
+                <div class="email">
+                  {{email}}
+                </div>                
+              </li>
+            </ul>
+
+
+            <button class="btn btn-lg btn-success " (click)="finishForm()">
+              Enviar
+            </button>
           </section>
       
           <section *ngSwitchCase="5">
-            <p>Genial has enviado exitosamente tu correo</p>
+
+            <p>El registro se ha creado satisfactoriamente.</p>
+
             <!-- <button class="btn btn-lga ctionBtn" (click)="changeState(3)">terminar</button> -->
           </section>
           

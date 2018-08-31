@@ -25,6 +25,7 @@ import { CloudinaryModule, CloudinaryConfiguration, Cloudinary } from '@cloudina
 
 import { FileUploadModule } from 'ng2-file-upload';
 import { environment } from '../environments/environment';
+import { UsersModule } from './users/users.module';
 
 @NgModule({
   declarations: [
@@ -36,8 +37,10 @@ import { environment } from '../environments/environment';
   imports: [
     BrowserModule,
     SharedModule,
+    UsersModule,
     InstructionsModule,
     RecordsModule,
+    
     AppRoutingModule,
     HttpClientModule,
     HttpClientInMemoryWebApiModule.forRoot(

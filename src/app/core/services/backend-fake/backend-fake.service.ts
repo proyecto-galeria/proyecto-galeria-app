@@ -5,6 +5,7 @@ import { instructions } from "./fake-data/instructions-fake";
 import { records } from "./fake-data/records-fake";
 import { concepts } from "./fake-data/concepts-fake";
 import { locations } from "./fake-data/locations-fake";
+import { users } from "./fake-data/users-fake";
 
 
 @Injectable()
@@ -17,7 +18,8 @@ export class BackendFakeService implements InMemoryDbService {
       instructions, 
       records,
       concepts,
-      locations
+      locations,
+      users
 
     }
 

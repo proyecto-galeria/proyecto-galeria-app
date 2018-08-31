@@ -12,6 +12,7 @@ import { ConceptsService } from '../../concepts/concepts.service';
 import { LocationsService } from '../../locations/locations.service';
 import { RecordsService } from '../../records/records.service';
 import { Record } from '../../shared/models/record.model';
+import { User } from '../../shared/models/user.model';
 
 
 
@@ -34,8 +35,11 @@ export class RecordNewComponent implements OnInit {
   
   public currentState;
   public instruction: Instruction;
+  public users: User[];
   public records: Array<Record>;
   
+  public extra_emails: string[];
+
   public webcamImage: WebcamImage = null;
   
 
@@ -57,7 +61,10 @@ export class RecordNewComponent implements OnInit {
 
     
     this.instruction = this.route.snapshot.data['instruction'] || {};
-    
+    this.users = this.route.snapshot.data['users'] || {};
+        
+    this.extra_emails = [];
+
     this.conceptsService.fetchConcept(this.instruction.concept)
     .subscribe( concept => {
       this.locationsService.fetchLocation(concept.location).subscribe(
@@ -102,6 +109,11 @@ export class RecordNewComponent implements OnInit {
       
       // this.records.push(newReco)
     this.currentState = RECORD_STATES.CONFIRM_SEND;
+  }
+
+
+  addEmail( emailInput: HTMLInputElement ) {
+    this.extra_emails.push( emailInput.value );
   }
 
 

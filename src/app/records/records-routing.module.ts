@@ -8,13 +8,15 @@ import { RecordListComponent } from "./record-list/record-list.component";
 import { RecordListResolver } from './record-list/record-list.resolver';
 import { RecordDetailResolver } from './record-detail/record-detail.resolver';
 import { InstructionDetailResolver } from '../instructions/instruction-detail/instruction-detail.resolver';
+import { UserListResolver } from '../users/user-list.resolver';
 
 const routes: Routes = [
   {
     path: 'nuevo-registro/:instruction_id',
     component: RecordNewComponent,
     resolve: {
-      instruction: InstructionDetailResolver
+      instruction: InstructionDetailResolver,
+      users: UserListResolver
     }
   },
   {
@@ -39,7 +41,9 @@ const routes: Routes = [
   exports: [RouterModule],
   providers: [
     RecordDetailResolver,
-    RecordListResolver
+    RecordListResolver,
+    InstructionDetailResolver,
+    UserListResolver
   ]
 })
 export class RecordsRoutingModule { }
