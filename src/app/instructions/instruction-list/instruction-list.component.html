@@ -1,25 +1,22 @@
-<h1>
-  Instrucciones
-</h1>
-
-<ul>
-  <li *ngFor="let instruction of instructions; index as i">
-    <a [routerLink]="['/instrucciones', i ]">
-      <header>
-        <div class="concept">
-          {{ instruction.concept_object?.name }}
-        </div>
-        <div class="date">
-          {{ instruction.date | dateText }}
-        </div>
-      </header>
-
-      <div class="description">
-        <p>
-          {{instruction.description}}
-        </p>
-      </div>
-
-    </a>
-  </li>
-</ul>
+<section>
+    <h1>
+        Instrucciones
+      </h1>
+      
+      <ul>
+        <li *ngFor="let instruction of instructions; index as i">
+          <a [routerLink]="['/instrucciones', i ]">
+            <header>
+              <h3 class="concept">
+                {{ instruction.concept_object?.name }}
+              </h3>
+              <h4 class="date">
+                {{ instruction.date | dateText }}
+              </h4>
+            </header>
+      
+          </a>
+        </li>
+      </ul>
+      
+</section>

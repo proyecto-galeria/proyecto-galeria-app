@@ -5,7 +5,7 @@ export interface Record {
 
 
     id: number, // string // UUID
-    user: User,
+    user: number,
     date: string, // DateTime
     name: string,
     comments: string,

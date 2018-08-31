@@ -11,7 +11,7 @@ import { Observable } from 'rxjs';
 })
 export class InstructionsService {
 
-  private endpointUrl: string = 'api/instructions';
+  private endpointUrl: string = 'http://localhost:3000/api/instructions';
 
   private currentInstruction: number; 
 
@@ -19,9 +19,10 @@ export class InstructionsService {
 
 
   fetchInstructions(): Observable<Instruction[]> {
+      let inst = this.http.get<Instruction[]>(`${this.endpointUrl}/`)
 
-    return this.http
-      .get<Instruction[]>(`${this.endpointUrl}/`)
+      
+    return inst
 
   }
 

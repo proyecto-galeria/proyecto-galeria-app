@@ -1,123 +1,120 @@
-<!-- <header>
-  <nav>
-    <ul>
-      <li (click)="changeState(0)">Estado 1</li>
-      <li (click)="changeState(1)">Estado 2</li>
-      <li (click)="changeState(2)">Estado 3</li>
-      <li (click)="changeState(3)">Estado 4</li>
-      <li (click)="changeState(4)">Estado 5</li>
-      <li (click)="changeState(5)">Estado 6</li>
-      <li (click)="changeState(6)">Estado 7</li>
-    </ul>
-  </nav>
-</header> -->
+<div class="main">
+  
+          <div class="circles">
+            <div id="0" (click)="changeState(0)"></div>
+            <div id="1" (click)="changeState(1)"></div>
+            <div id="2" (click)="changeState(2)"></div>
+            <div id="3" (click)="changeState(3)"></div>
+        
+          </div>
 
-
-<section>
-
-  <ng-container [ngSwitch]="currentState">
-    
-    <section *ngSwitchCase="0">
-      state: RECORD_INFO
-
-      <header>
-
-        <div class="concept-info">
-          <h3>
-            {{instruction.concept_object?.name}}            
-          </h3>
-          <p class="address">
-            {{instruction.concept_object?.location_object?.address}}                        
-          </p>
-        </div>
-
-      </header>
-
-    
-
-      <div>
-        <label for="date">Cantidad de Elementos</label>
-        <input type="text" name="" id="cantidad" value="">
-      </div>
-      <label for="location">Ubicacion</label>
-      <input type="text" name="" id="location">
-
-      <button (click)="changeState(1) ">
-        Siguiente
-      </button>
-    </section>
-
-    <section *ngSwitchCase="1">
-      state: CREATE_PHOTO
-     
-
-      <webcam [height]="300" [width]="300"
-      [trigger]="triggerObservable"
-      (imageCapture)="handleImage($event)"
-      ></webcam>
-      <!-- *ngIf="showWebcam" -->
-      <!-- [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" -->
-      <!-- [videoOptions]="videoOptions" -->
-      <!-- (initError)="handleInitError($event)" -->
-      <!-- (cameraSwitched)="cameraWasSwitched($event)" -->
-      <br/>
-      <button class="actionBtn" (click)="triggerSnapshot(); changeState(2)">Tomar Foto</button>
-
-      <!-- <photo-upload></photo-upload> -->
       
-    </section>
-
-    <section *ngSwitchCase="2">
-      state: REVIEW_PHOTO
-            <div class="webcam-image" *ngIf="!!uploadedImage">
-              <img src="{{uploadedImage}}" alt="" width="200" height="200">
-            </div>
-            <button class="actionBtn" (click)="changeState(1)">regresar</button>
-            <button class="actionBtn" (click)="changeState(3)">continuar</button>
-    </section>
-
-    <section *ngSwitchCase="3">
-      state: REVIEW_RECORD
-      <h3>
-        {{instruction.concept_object?.name}}            
-      </h3>
-      <p class="address">
-        {{instruction.concept_object?.location_object?.address}}                        
-      </p>
-      <p class="quantity">
-        <!-- {{instruction.concept_object?.location_object?.address}}                         -->
-        Cantidad:1
-      </p>
-      <p class="location">
-        <!-- {{instruction.concept_object?.location_object?.address}}                         -->
-        Lugar: Soriana división del norte
-      </p>
+      
+      <section>
+      
+        <ng-container [ngSwitch]="currentState">
+          
+          <section *ngSwitchCase="0">
+      
+            <header>
+      
+              <div class="concept-info">
+                <h3>
+                  {{instruction.concept_object?.name}}            
+                </h3>
+                <p class="address">
+                  {{instruction.concept_object?.location_object?.address}}                        
+                </p>
+              </div>
+      
+            </header>
+      
+          
       
 
-      <button class="actionBtn" (click)="changeState(4)">continuar</button>
-    </section>
+              <!-- <label for="date">Cantidad de Elementos</label> -->
+              <input class="form-control" type="text" name="" id="cantidad" placeholder="Cantidad" value="">
 
-    <section *ngSwitchCase="4">
-      state: CHOOSE_RECIPIENTS
-      <label for="mail">Agrega un correo</label>
-      <input type="text">
-      <button>agregar correo</button>
-      <ul>
-        <li>Correo1</li>
-        <li>Correo2</li>
-        <li>Correo3</li>
-      </ul>
-      <button class="actionBtn" (click)="finishForm()">send</button>
-    </section>
+            <!-- <label for="location">Ubicacion</label> -->
+            <input type="text" class="form-control" name="" placeholder="Ubicación" id="location">
+      
+            <button class="btn btn-lg" (click)="changeState(1) " >
+              Siguiente
+            </button>
+          </section>
+      
+          <section *ngSwitchCase="1">
+           
+      
+            <webcam [height]="300" [width]="300"
+            [trigger]="triggerObservable"
+            (imageCapture)="handleImage($event)"
+            ></webcam>
+            <!-- *ngIf="showWebcam" -->
+            <!-- [allowCameraSwitch]="allowCameraSwitch" [switchCamera]="nextWebcamObservable" -->
+            <!-- [videoOptions]="videoOptions" -->
+            <!-- (initError)="handleInitError($event)" -->
+            <!-- (cameraSwitched)="cameraWasSwitched($event)" -->
+            <br/>
+            <button class="btn btn-lg actionBtn" (click)="triggerSnapshot(); changeState(2)">Tomar Foto</button>
+      
+            <!-- <photo-upload></photo-upload> -->
+            
+          </section>
+      
+          <section *ngSwitchCase="2">
+                  <div class="webcam-image" *ngIf="!!uploadedImage">
+                    <img src="{{uploadedImage}}" alt="" width="200" height="200">
+                  </div>
+                  <div class="btn-container">
 
-    <section *ngSwitchCase="5">
-      state: CONFIRM_SEND
-      <!-- <button class="actionBtn" (click)="changeState(3)">terminar</button> -->
-    </section>
-    
-  </ng-container>
-
-
-</section>
-
-
+                    <button class="btn btn-lga ctionBtn" (click)="changeState(1)">regresar</button>
+                    <button class="btn btn-lga ctionBtn" (click)="changeState(3)">continuar</button>
+                  </div>
+          </section>
+      
+          <section *ngSwitchCase="3">
+            <h3>
+              {{instruction.concept_object?.name}}            
+            </h3>
+            <p class="address">
+              {{instruction.concept_object?.location_object?.address}}                        
+            </p>
+            <p class="quantity">
+              <!-- {{instruction.concept_object?.location_object?.address}}                         -->
+              Cantidad:1
+            </p>
+            <p class="location">
+              <!-- {{instruction.concept_object?.location_object?.address}}                         -->
+              Lugar: Soriana división del norte
+            </p>
+            
+      
+            <button class="btn btn-lg actionBtn" (click)="changeState(4)">continuar</button>
+          </section>
+      
+          <section *ngSwitchCase="4">
+            <label for="mail">Agrega un correo</label>
+            <input type="text">
+            <button class="btn btn-sm">agregar</button>
+            <ul>
+              <li>Correo1</li>
+              <li>Correo2</li>
+              <li>Correo3</li>
+            </ul>
+            <button class="btn btn-lg btn-success " (click)="finishForm()">send</button>
+          </section>
+      
+          <section *ngSwitchCase="5">
+            <p>Genial has enviado exitosamente tu correo</p>
+            <!-- <button class="btn btn-lga ctionBtn" (click)="changeState(3)">terminar</button> -->
+          </section>
+          
+        </ng-container>
+      
+      
+      </section>
+      
+      
+      
+</div>

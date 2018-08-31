@@ -11,7 +11,9 @@ import { ActivatedRoute } from "@angular/router";
 import { ConceptsService } from '../../concepts/concepts.service';
 import { LocationsService } from '../../locations/locations.service';
 import { RecordsService } from '../../records/records.service';
-import { Record } from '../../shared/models/record.model'
+import { Record } from '../../shared/models/record.model';
+
+
 
 enum RECORD_STATES {
   RECORD_INFO = 0,
@@ -19,8 +21,7 @@ enum RECORD_STATES {
   REVIEW_PHOTO = 2,
   REVIEW_RECORD = 3,
   CHOOSE_RECIPIENTS = 4,
-  ADD_EMAILS = 5,
-  CONFIRM_SEND = 6,
+  CONFIRM_SEND = 5,
 }
 
 
@@ -70,6 +71,11 @@ export class RecordNewComponent implements OnInit {
 
   changeState( state: number ) {
     this.currentState = state;
+    for (let index = 0; index < state; index++) {
+
+      
+      document.getElementById(`${index}`).classList.add('active')
+    }
   }
 
   finishForm() {
@@ -77,18 +83,7 @@ export class RecordNewComponent implements OnInit {
     // FRENK
     let newReco: Record = {
       id: 123,
-      user: {
-        id: 1234,
-        first_name: 'Rorri',
-        last_name: 'Frnk',
-        email: 'a@gmail.com',
-        username: 'furenku',
-        role: {
-          id: 12345,
-          name: 'rol',
-          capabilities: ['asd']
-        }
-      },
+      user: 0,
       date: '2045-12-12',
       name: 'nombre falso',
       comments: 'HOOOOUdajskdaskdjashd',
@@ -100,13 +95,13 @@ export class RecordNewComponent implements OnInit {
     
     // 
     // Hacer la llamada al servicio
-    console.log(newReco)
+    // console.log(newReco)
     this.recordsService.addRecord(newReco)
       // .subscribe(newReco => {
       // });
       
       // this.records.push(newReco)
-    this.currentState = RECORD_STATES.CREATE_PHOTO;
+    this.currentState = RECORD_STATES.CONFIRM_SEND;
   }
 
 

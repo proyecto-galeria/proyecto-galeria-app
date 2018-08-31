@@ -18,11 +18,13 @@ import { LocationsService } from '../../locations/locations.service';
 export class InstructionListComponent implements OnInit {
 
   public instructions: Instruction[];
+  public instructionList: Instruction[];
 
   constructor(
     private route: ActivatedRoute,
     private conceptsService: ConceptsService,
-    private locationsService: LocationsService
+    private locationsService: LocationsService,
+    private instructionsService: InstructionsService
   ) { }
 
   ngOnInit() {
@@ -41,6 +43,16 @@ export class InstructionListComponent implements OnInit {
         )
       });
     })
+
+
+
+      // this.instructionsService.fetchInstructions()
+      // .subscribe( instructions => {
+      //   console.log('instructions: ', instructions);
+        
+      //   this.instructionList = instructions
+      //   console.log('instructionlist: ', this.instructionList);
+      // });
     
   }
   

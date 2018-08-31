@@ -1,3 +1,45 @@
 agm-map {
-    height: 300px;
+    height: 350px;
+}
+section{
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: center;
+    padding: 8%; 
+
+}
+.concept{
+    flex-flow: column;
+    padding-bottom: 4%;
+
+}
+.concept-name{
+    width: 65%;
+    margin: 0;
+    float: left;
+}
+.date{
+    width: 30%;
+    margin: 0;
+    float: left;
+}
+button{
+    background: #607D8B;
+    color: white;
+    // border-radius: 5px;
+    // padding:1.5% 3%;
+    // font-size: 1rem;
+    float: right;
+}
+@media(min-width:790px){
+    .main{
+        display: flex;
+    }
+    section{
+        width: 50%;
+    }
+    agm-map {
+        margin: 2%;
+        width: 350px;
+    }
 }

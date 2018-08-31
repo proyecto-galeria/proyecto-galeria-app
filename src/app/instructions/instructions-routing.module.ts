@@ -21,15 +21,15 @@ const routes: Routes = [
         // children: [
         // ]
       },
-      {
-        path: 'new',
-        component: InstructionNewComponent,
-        // resolve: {
-        //   instructions: InstructionListResolver
-        // }
-        // children: [
-        // ]
-      },
+      // {
+      //   path: 'new',
+      //   component: InstructionNewComponent,
+      //   // resolve: {
+      //   //   instructions: InstructionListResolver
+      //   // }
+      //   // children: [
+      //   // ]
+      // },
       {
         path: ':instruction_id',
         component: InstructionDetailComponent,

@@ -1,0 +1,38 @@
+ .date{
+     /* font-size: .8rem; */
+     margin: 10px;
+     color: #757575;
+ }
+ .concept{
+    margin: 10px
+     /* margin-bottom: 5px; */
+ }
+section{
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+h1{
+    text-align: center;
+    border-bottom: #607D8B solid 1px;
+    /* width: 25%; */
+}
+header{
+    display: flex;
+    flex-flow: row nowrap;
+justify-content: space-between;
+}
+ul{
+    list-style: none;
+    padding: 0;
+}
+li{
+    border-bottom: #BDBDBD solid 1px;
+}
+li:hover{
+    background:#C5CAE9;
+    color:white;
+}
+a{
+color: black;
+}

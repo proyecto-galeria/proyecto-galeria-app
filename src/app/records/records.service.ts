@@ -39,7 +39,7 @@ export class RecordsService {
 
   addRecord (record: Record): Observable<Record> {
     return 
-    this.http.post(this.endpointUrl, record)
+    // this.http.post(this.endpointUrl, record)
       
   }
 

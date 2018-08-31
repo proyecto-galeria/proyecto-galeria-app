@@ -1,0 +1,45 @@
+
+.main{
+    padding: 8%;
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+}
+.circles{
+    display: flex;
+    margin-bottom: 3%;
+    width: 70%;
+    /* list-style: none; */
+}
+.circles > div{
+    background: #757575;
+    margin: 2%;
+    width: 20px;
+    height: 20px;
+    /* content: " "; */
+    border-radius: 50px;
+
+}
+.circles > div.active{
+    background: green;
+}
+
+button{
+    background: #607D8B;
+    color: white;
+    float: right;
+}
+#cantidad, #location{
+    margin-bottom: 2%; 
+}
+
+.btn-container{
+    display: flex;
+    justify-content: space-between;
+}
+@media(min-width:790px){
+    .circles{
+        width: 200px;
+    }
+}
+

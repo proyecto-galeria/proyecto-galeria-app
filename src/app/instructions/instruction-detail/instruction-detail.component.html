@@ -1,44 +1,49 @@
-<header>
-  <div class="date">
-      {{ instruction.date | dateText}}
-  </div>
-
-  <div class="concept">
-      
-      <div class="concept-name">
-        {{instruction.concept_object?.name}}
-      </div>
-
-      <div class="address">
-        {{instruction.concept_object?.location_object?.address}}
-      </div>
-  
-  </div>
-</header>
-
-<p class="description">
-  {{instruction.description}}
-</p>
-
-<footer>
-
-  <a [routerLink]="['/nuevo-registro',instruction.id]">
-    <button>
-      Realizar Tarea
-    </button>
-  </a>
-
-</footer>
-
-<div class="map">
-  <agm-map
-  [latitude]="instruction.concept_object?.location_object?.latitude"
-  [longitude]="instruction.concept_object?.location_object?.longitude"
-  [zoom]="15"
-  >
-    <agm-marker
-    [latitude]="instruction.concept_object?.location_object?.latitude"
-    [longitude]="instruction.concept_object?.location_object?.longitude"
-    ></agm-marker>
-  </agm-map>
+<div class="main">
+    <section>
+        <header>
+     
+    
+            <div class="concept">
+                
+                <h2 class="concept-name">
+                  {{instruction.concept_object?.name}}
+                </h2>
+                <h3 class="date">
+                    {{ instruction.date | dateText}}
+                </h3>
+                
+            
+            </div>
+          </header>
+          <div class="address">
+              {{instruction.concept_object?.location_object?.address}}
+            </div>
+          
+          <p class="description">
+            {{instruction.description}}
+          </p>
+          
+          
+          
+          <a [routerLink]="['/nuevo-registro',instruction.id]">
+            <button class="btn btn-lg">
+              Realizar Tarea
+            </button>
+          </a>
+          
+          
+    </section>
+    
+    
+      <agm-map
+      [latitude]="instruction.concept_object?.location_object?.latitude"
+      [longitude]="instruction.concept_object?.location_object?.longitude"
+      [zoom]="15"
+      >
+        <agm-marker
+        [latitude]="instruction.concept_object?.location_object?.latitude"
+        [longitude]="instruction.concept_object?.location_object?.longitude"
+        ></agm-marker>
+      </agm-map>
+    
 </div>
